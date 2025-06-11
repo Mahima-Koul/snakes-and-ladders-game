@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 # Global game state (not persistent — resets on server restart)
 game_state = {
-    "player1": 0,
-    "player2": 0,
+    "player1": 1,
+    "player2": 1,
     "current_turn": "player1"
 }
 
@@ -15,7 +15,7 @@ snakes = {
     64: 60, 87: 24, 93: 73, 95: 75, 98: 78
 }
 ladders = {
-    1: 38, 4: 14, 9: 31, 21: 42, 28: 84,
+    4: 14, 9: 31, 21: 42, 28: 84,
     36: 44, 51: 67, 71: 91, 80: 100
 }
 
@@ -65,8 +65,8 @@ def state():
 
 @app.route('/reset', methods=['POST'])
 def reset():
-    game_state["player1"] = 0
-    game_state["player2"] = 0
+    game_state["player1"] = 1
+    game_state["player2"] = 1
     game_state["current_turn"] = "player1"
     return jsonify({"message": "Game reset."})
 

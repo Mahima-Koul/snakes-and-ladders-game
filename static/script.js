@@ -1,6 +1,7 @@
 const board = document.getElementById('board');
 const diceResult = document.getElementById('dice-result');
 const rollBtn = document.getElementById('roll-btn');
+const resetBtn= document.getElementById('reset-btn');
 
 const totalCells = 100;
 const cells = [];
@@ -73,3 +74,19 @@ rollBtn.addEventListener('click', () => {
       console.error('Error rolling dice:', err);
     });
 });
+
+
+document.getElementById('reset-btn').addEventListener('click', () => {
+  fetch('/reset', { method: 'POST' })
+    .then(res => res.json())
+    .then(() => {
+      // Reset frontend values too
+      playerPositions.player1 = 1;
+      playerPositions.player2 = 1;
+      currentPlayer = 'player1';
+      rollBtn.disabled=false
+      updatePlayers();
+      diceResult.textContent = "Game reset! Roll the dice.";
+    });
+});
+
