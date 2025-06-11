@@ -7,23 +7,24 @@ const cells = [];
 let playerPositions = { player1: 0, player2: 0 };
 
 // Build board and map number to cell
-for (let row = 9; row >= 0; row--) {
+for (let row = 0; row < 10; row++) {
   for (let col = 0; col < 10; col++) {
     const cell = document.createElement('div');
     cell.className = 'cell';
 
     let number;
     if (row % 2 === 0) {
-      number = row * 10 + col + 1;
+      number = (9 - row) * 10 + col + 1;
     } else {
-      number = row * 10 + (10 - col);
+      number = (9 - row) * 10 + (9 - col) + 1;
     }
 
     cell.textContent = number;
     board.appendChild(cell);
-    cells[number - 1] = cell; // position 1 is at index 0
+    cells[number - 1] = cell;
   }
 }
+
 
 function updatePlayers() {
   cells.forEach(cell => {
