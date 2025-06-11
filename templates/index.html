@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Snakes and Ladders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: Nunito;
+      text-align: center;
+      background-image: url("/static/background-img-game.jpg")
+    }
+
+    #board {
+      display: grid;
+      grid-template-columns: repeat(10, 50px);
+      grid-template-rows: repeat(10, 50px);
+      margin: 20px auto;
+      width: 500px;
+      border: 2px solid #333;
+      background-color: white;
+    }
+    h1{
+      font-family: Nunito;
+      font-weight: 800;
+      color: rgb(0, 0, 0);
+      line-height: 21px;
+    }
+
+    .cell {
+      border: 1px solid #999;
+      position: relative;
+      font-size: 12px;
+      line-height: 50px;
+    }
+
+    .player {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 2px;
+    }
+
+    .player1 {
+      background: red;
+      left: 5px;
+    }
+
+    .player2 {
+      background: blue;
+      right: 5px;
+    }
+
+    #dice-result {
+      font-size: 20px;
+      margin: 15px;
+    }
+
+    #roll-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Snakes and Ladders</h1>
+  <div id="board"></div>
+  <div id="dice-result">Roll the dice!</div>
+  <button id="roll-btn">Roll Dice</button>
+  <script src="/static/script.js"></script>
+</body>
+
+</html>
