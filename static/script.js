@@ -4,7 +4,7 @@ const rollBtn = document.getElementById('roll-btn');
 
 const totalCells = 100;
 const cells = [];
-let playerPositions = { player1: 0, player2: 0 };
+let playerPositions = { player1: 1, player2: 1 };
 
 // Build board and map number to cell
 for (let row = 0; row < 10; row++) {
@@ -13,10 +13,14 @@ for (let row = 0; row < 10; row++) {
     cell.className = 'cell';
 
     let number;
-    if (row % 2 === 0) {
-      number = (9 - row) * 10 + col + 1;
+    const currentRow = 9 - row; // flip vertically
+
+    if (currentRow % 2 === 0) {
+      // Even row → left to right
+      number = currentRow * 10 + col + 1;
     } else {
-      number = (9 - row) * 10 + (9 - col) + 1;
+      // Odd row → right to left
+      number = currentRow * 10 + (9 - col) + 1;
     }
 
     cell.textContent = number;
