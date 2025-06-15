@@ -1,10 +1,10 @@
 from flask import Flask, jsonify, request,render_template
-import random
+import random   #for the dice roll
 
 app = Flask(__name__)
 
-# Global game state (not persistent — resets on server restart)
-game_state = {
+# Global game state(using dictionary data structure)
+game_state = {       
     "player1": 1,
     "player2": 1,
     "current_turn": "player1"
